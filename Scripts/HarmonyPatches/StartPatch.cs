@@ -44,7 +44,7 @@ class Patch1 {
                     [
                         "You aren't the only one who's out for BLOOD, Brother!",
                         "Looks like you've gone a little RUSTY, Brother!",
-                        "You think you can best ME?!",
+                        "You think you can best ME?! AFTER ALL THAT I'VE BEEN THROUGH!",
                         "YOU'RE JUST A FUCKING NIKON!",
                         "I diagnose a skill issue, Brother!",
                         "[The essence of Comedy]"
