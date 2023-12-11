@@ -37,13 +37,17 @@ class Patch1 {
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt1.wav"),
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt2.wav"),
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt3.wav"),
-                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt4.wav"), 
+                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt4.wav"),
+                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt5.wav"), 
+                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt6.wav"), 
                     ],
                     [
                         "You aren't the only one who's out for BLOOD, Brother!",
                         "Looks like you've gone a little RUSTY, Brother!",
                         "You think you can best ME?!",
-                        "YOU'RE JUST A FUCKING NIKON!"
+                        "YOU'RE JUST A FUCKING NIKON!",
+                        "I diagnose a skill issue, Brother!",
+                        "[The essence of Comedy]"
                     ],
                     null,
                     null,
@@ -61,17 +65,14 @@ class Patch1 {
                     [
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/taunt1.wav"),
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/taunt2.wav"),
-                        // Adding some of the first fight's taunts because 2 taunts aren't enough
-                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt2.wav"),
-                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt3.wav"),
-                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt4.wav"), 
+                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/taunt3.wav"),
+                        Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/taunt4.wav"), 
                     ],
                     [
                         "This one will cost you an arm and a leg, Brother!",
                         "What's the matter, Brother? Does your arm hurt? BECAUSE I CAN FIX THAT!",
-                        "Looks like you've gone a little RUSTY, Brother!",
-                        "You think you can best ME?!",
-                        "YOU'RE JUST A FUCKING NIKON!"
+                        "I'LL TEAR YOU LIMB FROM LIMB!",
+                        "I'LL FUCKING KILL YOU"
                     ],
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/enrage.wav"),
                     "YOU MOTHER FUCKER",
@@ -79,6 +80,10 @@ class Patch1 {
                     "FU-"
                 )
             );
+            // If the player has died during the first phase of the second encounter
+            // play a Taunt at the restart of the fight
+            if (!__instance.longIntro && __instance.secondEncounter && __instance.firstPhase)
+                __instance.Taunt();
         }
 
         // V2's 1-4 intro, when they come out from the window (fucking sick btw)
