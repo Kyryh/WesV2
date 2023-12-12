@@ -52,7 +52,7 @@ class Patch1 {
                     null,
                     null,
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/death.wav"),
-                    "FU-"
+                    "FUCK"
                 )
             );
         }
@@ -77,7 +77,7 @@ class Patch1 {
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/enrage.wav"),
                     "YOU MOTHER FUCKER",
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/death.wav"),
-                    "FU-"
+                    "FUCK"
                 )
             );
             // If the player has died during the first phase of the second encounter
