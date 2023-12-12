@@ -103,9 +103,9 @@ public class Plugin : BaseUnityPlugin
             "IntroVoice2", 
             WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/intro2.wav"),
             Utils.CreateSubtitleData(
-                Utils.MakeLine("How's about this for a trade?", 1.1f),
-                Utils.MakeLine("I beat you into a fucking pulp", 2.5f),
-                Utils.MakeLine("And you give my arm back", 4.5f)
+                Utils.MakeLine("How's about this for a trade?", 1.5f),
+                Utils.MakeLine("I beat you into a fucking pulp", 3.1f),
+                Utils.MakeLine("And you give my arm back", 5.2f)
             ),
             introVoice.transform
         );
@@ -139,7 +139,7 @@ public class Plugin : BaseUnityPlugin
             return versusIntro.activeInHierarchy;
         });
         audioSource1.Stop();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         audioSource2.Play();
         LogDebug("INTRO 2");
 
