@@ -44,9 +44,18 @@ class Patch3 {
         __instance.PlayVoice(data.deathAudioClip);
         MonoSingleton<SubtitleController>.Instance.DisplaySubtitle(data.deathSubtitle);
 
+        AudioSource fleeingVoice = Utils.CreateOneTimeVoiceObject(
+            "FleeingVoice",
+            Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/fleeing1.wav"),
+            Utils.CreateSubtitleData(
+                Utils.MakeLine("I WON'T GIVE YOU THE PLEASURE OF KILLING ME!")
+            ),
+            __instance.transform
+        );
+
         yield return new WaitForSeconds(2.5f);
-        __instance.PlayVoice(Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/fleeing1.wav"));
-        MonoSingleton<SubtitleController>.Instance.DisplaySubtitle("I WON'T GIVE YOU THE PLEASURE OF KILLING ME!");
+        
+        fleeingVoice.Play();
     }
 
     static IEnumerator Falling() {
@@ -55,7 +64,7 @@ class Patch3 {
         AudioSource audioSource = Utils.CreateVoiceObject("FallingVoice", fallingV2.transform);
         audioSource.clip = Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/death.wav");
         // Wait until V2 starts falling
-        yield return new WaitUntil(() => {Plugin.LogDebug(fallingV2.activeInHierarchy);return fallingV2.activeInHierarchy;});
+        yield return new WaitUntil(() => fallingV2.activeInHierarchy);
         yield return new WaitForSeconds(0.3f);
         
         audioSource.Play();
