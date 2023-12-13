@@ -14,7 +14,7 @@ class Patch1 {
             audioSource = __instance.transform.Find("Voice").GetComponent<AudioSource>();
 
             Utils.CreateOneTimeVoiceObject(
-                "FleeingVoice",
+                "SlidingVoice",
                 Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/fleeing2.wav"),
                 Utils.CreateSubtitleData(
                     Utils.MakeLine("Gotta get away, gotta get away, oh no..."),
@@ -47,7 +47,7 @@ class Patch1 {
                         "You think you can best ME?! AFTER ALL THAT I'VE BEEN THROUGH!",
                         "YOU'RE JUST A FUCKING NIKON!",
                         "I diagnose a skill issue, Brother!",
-                        "[The essence of Comedy]"
+                        "[The essence of comedy]"
                     ],
                     null,
                     null,
@@ -82,7 +82,7 @@ class Patch1 {
             );
             // If the player has died during the first phase of the second encounter
             // play a Taunt at the restart of the fight
-            if (!__instance.longIntro && __instance.secondEncounter && __instance.firstPhase)
+            if (__instance.secondEncounter && __instance.firstPhase && !Plugin.secondEncounterIntro)
                 __instance.Taunt();
         }
 

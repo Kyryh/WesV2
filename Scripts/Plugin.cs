@@ -15,6 +15,7 @@ public class Plugin : BaseUnityPlugin
     public static AssetBundle WesV2AssetBundle;
     public static ManualLogSource Log;
     public static Plugin Instance;
+    public static bool secondEncounterIntro = false;
 
     public void Awake() {
 
@@ -73,6 +74,8 @@ public class Plugin : BaseUnityPlugin
 
     private static IEnumerator V2_2Intro() {
 
+        secondEncounterIntro = true;
+
         // Waits one frame before finding the objects, so that the game has time to clone the rooms,
         // otherwise Utils.FindGameObjectByName("7 Stuff(Clone)") would return null
         yield return null;
@@ -116,7 +119,7 @@ public class Plugin : BaseUnityPlugin
             // i need to do this shit because for some fucking reason
             // using the teleport menu deletes all the references to the
             // objects???? i need to continuously check if they're null
-            // and if they are i find it again
+            // and if they are i find them again
             //
             // technically it breaks if you start the intro and then
             // use the teleport menu again but that's such a intricate
@@ -150,7 +153,10 @@ public class Plugin : BaseUnityPlugin
             }
             return versusIntro.activeInHierarchy;
         });
-        audioSource2.Stop(); 
+        audioSource2.Stop();
+        
+        yield return null;
+        secondEncounterIntro = false;
         
     }
     
