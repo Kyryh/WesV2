@@ -42,17 +42,17 @@ class Patch1 : DefaultPatch {
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/taunt6.wav"), 
                     ],
                     [
-                        "You aren't the only one who's out for BLOOD, Brother!",
-                        "Looks like you've gone a little RUSTY, Brother!",
-                        "You think you can best ME?! AFTER ALL THAT I'VE BEEN THROUGH!",
-                        "YOU'RE JUST A FUCKING NIKON!",
-                        "I diagnose a skill issue, Brother!",
-                        "[The essence of comedy]"
+                        V2VoicelinesData.GetSubtitle("subtitles_v2_taunt1"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2_taunt2"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2_taunt3"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2_taunt4"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2_taunt5"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2_taunt6")
                     ],
                     null,
                     null,
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/death.wav"),
-                    "FUCK"
+                    V2VoicelinesData.GetSubtitle("subtitles_v2_death")
                 )
             );
         }
@@ -89,7 +89,7 @@ class Patch1 : DefaultPatch {
         // V2's 1-4 intro, when they come out from the window (fucking sick btw)
         if (__instance.intro) {
             __instance.PlayVoice(Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/windowbreak.wav"));
-            MonoSingleton<SubtitleController>.Instance.DisplaySubtitle("Oh fuck here I come");
+            MonoSingleton<SubtitleController>.Instance.DisplaySubtitle(V2VoicelinesData.GetSubtitle("subtitles_v2_windowsbreak"));
         }
 
         // V2's 1-4 long intro, when they bow (also fucking sick btw)

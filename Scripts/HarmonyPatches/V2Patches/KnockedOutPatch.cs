@@ -27,9 +27,9 @@ class Patch3 : DefaultPatch {
             "OutroVoice", 
             Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/outro.wav"),
             Utils.CreateSubtitleData(
-                Utils.MakeLine("Okay, you know what"),
-                Utils.MakeLine("I'm gonna call that one a draw", 0.9f),
-                Utils.MakeLine("Team Rocket is pissing off again", 2f)
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_outro1")),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_outro2"), 0.9f),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_outro3"), 2f)
             ),
             __instance.transform
         );

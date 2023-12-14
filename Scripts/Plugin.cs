@@ -52,6 +52,7 @@ public class Plugin : BaseUnityPlugin
             }
         }
         
+        V2VoicelinesData.LoadSubtitles();
         
         Logger.LogInfo("Plugin Wes V2 is loaded!");
 
@@ -74,8 +75,8 @@ public class Plugin : BaseUnityPlugin
                 "Voice",
                 WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/jumpscare.wav"),
                 Utils.CreateSubtitleData(
-                    Utils.MakeLine("Oh shit watch out"),
-                    Utils.MakeLine("I'm comin' through", .8f)
+                    Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_jumpscare_1")),
+                    Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_jumpscare_2"), .8f)
                 ),
                 fakeV2.transform
             );
