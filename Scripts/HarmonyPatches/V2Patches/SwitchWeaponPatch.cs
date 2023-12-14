@@ -3,7 +3,7 @@ using HarmonyLib;
 
 
 [HarmonyPatch(typeof(V2), "SwitchWeapon")]
-class Patch4 {
+class Patch4 : DefaultPatch {
     static void Postfix(V2 __instance) {
         if (!__instance.firstPhase)
             return;

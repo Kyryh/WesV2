@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 [HarmonyPatch(typeof(V2), "KnockedOut")]
-class Patch3 {
+class Patch3 : DefaultPatch {
     static void Postfix(V2 __instance, string triggerName) {
         if (triggerName == "KnockedDown") {
             if (!__instance.secondEncounter)

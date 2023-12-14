@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 [HarmonyPatch(typeof(V2), "Start")]
-class Patch1 {
+class Patch1 : DefaultPatch {
     static void Postfix(V2 __instance, Animator ___anim) {
         AudioSource audioSource;
 

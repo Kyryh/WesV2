@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [HarmonyPatch(typeof(GoToTarget), "Activate")]
-class Patch7 {
+class Patch7 : DefaultPatch {
     static void Prefix(GoToTarget __instance) {
         if (__instance.activated)
             return;
