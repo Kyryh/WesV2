@@ -25,6 +25,10 @@
     <Reference Include="UltrakULL">
       <HintPath>lib\UltrakULL.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <!-- <Reference Include="UMM">
       <HintPath>lib\UMM.dll</HintPath>
     </Reference> -->
