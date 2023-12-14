@@ -17,8 +17,8 @@ class Patch1 : DefaultPatch {
                 "SlidingVoice",
                 Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/fleeing2.wav"),
                 Utils.CreateSubtitleData(
-                    Utils.MakeLine("Gotta get away, gotta get away, oh no..."),
-                    Utils.MakeLine("YOUR FORM IS INCREDIBLE!", 3f)
+                    Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_fleeing2_1")),
+                    Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_fleeing2_2"), 3f)
                 ),
                 __instance.transform
             ).Play();
@@ -69,15 +69,15 @@ class Patch1 : DefaultPatch {
                         Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/taunt4.wav"), 
                     ],
                     [
-                        "This one will cost you an arm and a leg, Brother!",
-                        "What's the matter, Brother? Does your arm hurt? BECAUSE I CAN FIX THAT!",
-                        "I'LL TEAR YOU LIMB FROM LIMB!",
-                        "I'LL FUCKING KILL YOU"
+                        V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt1"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt2"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt3"),
+                        V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt4")
                     ],
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/enrage.wav"),
-                    "YOU MOTHER FUCKER",
+                    V2VoicelinesData.GetSubtitle("subtitles_v2Second_enrage"),
                     Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/death.wav"),
-                    "FUCK"
+                    V2VoicelinesData.GetSubtitle("subtitles_v2_death")
                 )
             );
             // If the player has died during the first phase of the second encounter

@@ -112,9 +112,9 @@ public class Plugin : BaseUnityPlugin
             "IntroVoice1", 
             WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/intro1.wav"),
             Utils.CreateSubtitleData(
-                Utils.MakeLine("Hello, Brother"),
-                Utils.MakeLine("I believe you have something of mine", 1.6f),
-                Utils.MakeLine("Something VERY important", 3.2f)
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro1_1")),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro1_2"), 1.6f),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro1_3"), 3.2f)
             ),
             introVoice.transform
         );
@@ -123,9 +123,9 @@ public class Plugin : BaseUnityPlugin
             "IntroVoice2", 
             WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/intro2.wav"),
             Utils.CreateSubtitleData(
-                Utils.MakeLine("How's about this for a trade?", 1.5f),
-                Utils.MakeLine("I beat you into a fucking pulp", 3.1f),
-                Utils.MakeLine("And you give my arm back", 5.2f)
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro2_1"), 1.5f),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro2_2"), 3.1f),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro2_3"), 5.2f)
             ),
             introVoice.transform
         );

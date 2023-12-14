@@ -65,4 +65,26 @@ class V2Subtitles {
     public string subtitles_v2_outro1 = "Okay, you know what";
     public string subtitles_v2_outro2 = "I'm gonna call that one a draw";
     public string subtitles_v2_outro3 = "Team Rocket is pissing off again";
+
+    public string subtitles_v2Second_intro1_1 = "Hello, Brother";
+    public string subtitles_v2Second_intro1_2 = "I believe you have something of mine";
+    public string subtitles_v2Second_intro1_3 = "Something VERY important";
+
+    public string subtitles_v2Second_intro2_1 = "How's about this for a trade?";
+    public string subtitles_v2Second_intro2_2 = "I beat you into a fucking pulp";
+    public string subtitles_v2Second_intro2_3 = "And you give my arm back";
+
+    public string subtitles_v2Second_taunt1 = "This one will cost you an arm and a leg, Brother!";
+    public string subtitles_v2Second_taunt2 = "What's the matter, Brother? Does your arm hurt? BECAUSE I CAN FIX THAT!";
+    public string subtitles_v2Second_taunt3 = "I'LL TEAR YOU LIMB FROM LIMB!";
+    public string subtitles_v2Second_taunt4 = "I'LL FUCKING KILL YOU";
+
+    public string subtitles_v2Second_enrage = "YOU MOTHERFUCKER";
+
+    public string subtitles_v2Second_fleeing1 = "I WON'T GIVE YOU THE PLEASURE OF KILLING ME!";
+
+    public string subtitles_v2Second_fleeing2_1 = "Gotta get away, gotta get away, oh no...";
+    public string subtitles_v2Second_fleeing2_2 = "YOUR FORM IS INCREDIBLE!";
+
+    public string subtitles_v2Second_death = "FUCKING NIKON";
 }

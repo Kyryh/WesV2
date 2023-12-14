@@ -48,7 +48,7 @@ class Patch3 : DefaultPatch {
             "FleeingVoice",
             Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_2/fleeing1.wav"),
             Utils.CreateSubtitleData(
-                Utils.MakeLine("I WON'T GIVE YOU THE PLEASURE OF KILLING ME!")
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_fleeing1"))
             ),
             __instance.transform
         );
@@ -68,7 +68,7 @@ class Patch3 : DefaultPatch {
         yield return new WaitForSeconds(0.3f);
         
         audioSource.Play();
-        MonoSingleton<SubtitleController>.Instance.DisplaySubtitle("FUCKING NIKON");
+        MonoSingleton<SubtitleController>.Instance.DisplaySubtitle(V2VoicelinesData.GetSubtitle("subtitles_v2Second_death"));
 
     }
 } 
