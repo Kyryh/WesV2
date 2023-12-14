@@ -17,6 +17,7 @@ public class Plugin : BaseUnityPlugin
     public static ManualLogSource Log;
     public static Plugin Instance;
     public static bool secondEncounterIntro = false;
+    public static bool ultrakullLoaded = false;
 
     public void Awake() {
 
@@ -38,10 +39,19 @@ public class Plugin : BaseUnityPlugin
         Harmony harmony = new Harmony("kyryh.wesv2");
 
         foreach (Type type in assembly.GetPatchesOfType(typeof(DefaultPatch))) {
-            
             harmony.PatchAll(type);
         }
 
+        ultrakullLoaded = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("clearwater.ultrakill.ultrakull");
+
+
+        // Only apply the UltrakULL patch if UltrakULL is present and loaded
+        if (ultrakullLoaded) {
+            foreach (Type type in assembly.GetPatchesOfType(typeof(UltrakULLPatch))) {
+                harmony.PatchAll(type);
+            }
+        }
+        
         
         Logger.LogInfo("Plugin Wes V2 is loaded!");
 
