@@ -22,6 +22,9 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>lib\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="UltrakULL">
+      <HintPath>lib\UltrakULL.dll</HintPath>
+    </Reference>
     <!-- <Reference Include="UMM">
       <HintPath>lib\UMM.dll</HintPath>
     </Reference> -->

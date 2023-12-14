@@ -6,10 +6,10 @@ using System.IO;
 using System.Reflection;
 using BepInEx.Logging;
 using System.Collections;
-using ULTRAKILL.Cheats;
 
 
 [BepInPlugin("kyryh.wesv2", WesV2.PluginInfo.PLUGIN_NAME, WesV2.PluginInfo.PLUGIN_VERSION)]
+[BepInDependency("clearwater.ultrakill.ultrakull", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin
 {
     public static AssetBundle WesV2AssetBundle;
