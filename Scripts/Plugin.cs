@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using BepInEx.Logging;
 using System.Collections;
+using System;
 
 
 [BepInPlugin("kyryh.wesv2", WesV2.PluginInfo.PLUGIN_NAME, WesV2.PluginInfo.PLUGIN_VERSION)]
@@ -35,7 +36,12 @@ public class Plugin : BaseUnityPlugin
 
 
         Harmony harmony = new Harmony("kyryh.wesv2");
-        harmony.PatchAll();
+
+        foreach (Type type in assembly.GetPatchesOfType(typeof(DefaultPatch))) {
+            
+            harmony.PatchAll(type);
+        }
+
         
         Logger.LogInfo("Plugin Wes V2 is loaded!");
 

@@ -2,9 +2,17 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using HarmonyLib;
 using System.Linq;
+using System.Reflection;
+using System;
+using Random = UnityEngine.Random;
 
 public static class ExtensionMethods
 {
+
+    public static Type[] GetPatchesOfType(this Assembly assembly, Type type) {
+        return assembly.GetTypes().Where(t => t.IsSubclassOf(type)).ToArray();
+    }
+
     // ConditionalWeakTable to store V2's additional data since i can't directly add attributes to classes with Harmony
     private static readonly ConditionalWeakTable<V2, V2AdditionalData> additionalDataTable = new ConditionalWeakTable<V2, V2AdditionalData>();
 
