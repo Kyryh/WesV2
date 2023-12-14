@@ -1,0 +1,68 @@
+using HarmonyLib;
+using UltrakULL.json;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System;
+
+static class V2VoicelinesData {
+    private static Dictionary<string, V2Subtitles> allSubtitles = new Dictionary<string, V2Subtitles>();
+
+    public static void LoadSubtitles() {
+        allSubtitles.Add("default", new V2Subtitles());
+        if (Plugin.ultrakullLoaded) {
+            string[] files = Directory.GetFiles(Path.Combine(BepInEx.Paths.ConfigPath,"ultrakull"),"*.json");
+            foreach (string file in files) {
+                try {
+                    JObject jsonObject = JObject.Parse(File.ReadAllText(file));
+                    string langName = (string)jsonObject["metadata"]["langName"];
+                    if (!allSubtitles.ContainsKey(langName) && langName != "te-mp")
+                    {
+                        V2Subtitles subtitles = JsonConvert.DeserializeObject<V2Subtitles>(jsonObject["subtitles"].ToString());
+                        allSubtitles.Add(langName, subtitles);
+                    }
+
+                } catch (Exception e) {
+                    Plugin.LogError("something happened while trying to load a language: " + e);
+                }
+            }
+        }
+    }
+
+    public static string GetSubtitle(string voiceLine) {
+        string subtitle;
+        if (Plugin.ultrakullLoaded) {
+            string langName = LanguageManager.CurrentLanguage.metadata.langName;
+            subtitle = Traverse.Create(allSubtitles[langName]).Field(voiceLine).GetValue<string>();
+            if (subtitle != null)
+                return subtitle;
+        }
+        subtitle = Traverse.Create(allSubtitles["default"]).Field(voiceLine).GetValue<string>();
+        return subtitle;
+    }
+}
+
+class V2Subtitles {
+    public string subtitles_v2_jumpscare_1 = "Oh shit watch out";
+    public string subtitles_v2_jumpscare_2 = "I'm comin' through";
+
+    public string subtitles_v2_windowsbreak = "Oh fuck here I come";
+
+    public string subtitles_v2_intro_1 = "I thought it would be obvious, Brother";
+    public string subtitles_v2_intro_2 = "After all, I am you";
+    public string subtitles_v2_intro_3 = "But STRONGER";
+
+    public string subtitles_v2_taunt1 = "You aren't the only one who's out for BLOOD, Brother!";
+    public string subtitles_v2_taunt2 = "Looks like you've gone a little RUSTY, Brother!";
+    public string subtitles_v2_taunt3 = "You think you can best ME?! AFTER ALL THAT I'VE BEEN THROUGH!";
+    public string subtitles_v2_taunt4 = "YOU'RE JUST A FUCKING NIKON!";
+    public string subtitles_v2_taunt5 = "I diagnose a skill issue, Brother!";
+    public string subtitles_v2_taunt6 = "[The essence of comedy]";
+
+    public string subtitles_v2_death = "FUCK";
+
+    public string subtitles_v2_outro1 = "Okay, you know what";
+    public string subtitles_v2_outro2 = "I'm gonna call that one a draw";
+    public string subtitles_v2_outro3 = "Team Rocket is pissing off again";
+}
