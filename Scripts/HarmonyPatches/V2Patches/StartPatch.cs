@@ -109,9 +109,9 @@ class Patch1 : DefaultPatch {
             "IntroVoice", 
             Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/v2_1/intro.wav"),
             Utils.CreateSubtitleData(
-                Utils.MakeLine("I thought it would be obvious, Brother", 1.2f),
-                Utils.MakeLine("After all, I am you", 3.2f),
-                Utils.MakeLine("But STRONGER", 5.2f)
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_intro_1"), 1.2f),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_intro_2"), 3.2f),
+                Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_intro_3"), 5.2f)
             ),
             __instance.transform
         );
