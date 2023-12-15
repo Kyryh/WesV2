@@ -33,26 +33,39 @@ static class V2VoicelinesData {
     }
 
     public static string GetSubtitle(string voiceLine) {
-        string subtitle;
         if (Plugin.ultrakullLoaded) {
-            string langName = LanguageManager.CurrentLanguage.metadata.langName;
-            subtitle = Traverse.Create(allSubtitles[langName]).Field(voiceLine).GetValue<string>();
+            string subtitle = GetSubtitleUltrakull(voiceLine);
             if (subtitle != null)
                 return subtitle;
         }
-        subtitle = Traverse.Create(allSubtitles["default"]).Field(voiceLine).GetValue<string>();
-        return subtitle;
+        return Traverse.Create(allSubtitles["default"]).Field(voiceLine).GetValue<string>();
+    }
+
+    private static string GetSubtitleUltrakull(string voiceLine) {
+        string langName = LanguageManager.CurrentLanguage.metadata.langName;
+        return Traverse.Create(allSubtitles[langName]).Field(voiceLine).GetValue<string>();
     }
 
     public static AudioClip GetAudioClip(string audioFilePath) {
-        AudioClip emptyAudioClip = new AudioClip();
-        string fixedAudioFilePath = audioFilePath.Replace('/', Path.DirectorySeparatorChar);
-        AudioClip audioClip = AudioSwapper.SwapClipWithFile(emptyAudioClip, AudioSwapper.SpeechFolder + fixedAudioFilePath);
-        if(audioClip != emptyAudioClip) {
-            return audioClip;
+        if (Plugin.ultrakullLoaded) {
+            AudioClip audioClip = GetAudioClipUltrakull(audioFilePath);
+            if (audioClip != null)
+                return audioClip;
         }
+
         return Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/" + audioFilePath);
         
+    }
+
+    private static AudioClip GetAudioClipUltrakull(string audioFilePath) {
+        AudioClip emptyAudioClip = new AudioClip();
+        string fixedAudioFilePath = audioFilePath.Replace('/', Path.DirectorySeparatorChar);
+        // Load the clip from file
+        AudioClip audioClip = AudioSwapper.SwapClipWithFile(emptyAudioClip, AudioSwapper.SpeechFolder + fixedAudioFilePath);
+        // If the loaded clip is different from the empty clip, then the load was successful
+        if(audioClip != emptyAudioClip)
+            return audioClip;
+        return null;
     }
 }
 
