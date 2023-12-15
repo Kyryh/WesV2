@@ -63,7 +63,7 @@ public class Plugin : BaseUnityPlugin
 
     public void OnSceneLoaded() {
         // In case the V2_2Intro coroutine is still playing
-        StopAllCoroutines(); 
+        StopAllCoroutines();
         string levelName = SceneHelper.CurrentScene;
         
         if (levelName == "Level 1-4") {
