@@ -46,7 +46,7 @@ static class V2VoicelinesData {
 
     public static AudioClip GetAudioClip(string audioFilePath) {
         AudioClip emptyAudioClip = new AudioClip();
-        string fixedAudioFilePath = audioFilePath.Replace('/', Path.PathSeparator);
+        string fixedAudioFilePath = audioFilePath.Replace('/', Path.DirectorySeparatorChar);
         AudioClip audioClip = AudioSwapper.SwapClipWithFile(emptyAudioClip, AudioSwapper.SpeechFolder + fixedAudioFilePath);
         if(audioClip != emptyAudioClip) {
             return audioClip;
