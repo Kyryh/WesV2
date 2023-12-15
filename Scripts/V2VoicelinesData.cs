@@ -5,6 +5,8 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System;
+using UnityEngine;
+using UltrakULL.audio;
 
 static class V2VoicelinesData {
     private static Dictionary<string, V2Subtitles> allSubtitles = new Dictionary<string, V2Subtitles>();
@@ -40,6 +42,17 @@ static class V2VoicelinesData {
         }
         subtitle = Traverse.Create(allSubtitles["default"]).Field(voiceLine).GetValue<string>();
         return subtitle;
+    }
+
+    public static AudioClip GetAudioClip(string audioFilePath) {
+        AudioClip emptyAudioClip = new AudioClip();
+        string fixedAudioFilePath = audioFilePath.Replace('/', Path.PathSeparator);
+        AudioClip audioClip = AudioSwapper.SwapClipWithFile(emptyAudioClip, AudioSwapper.SpeechFolder + fixedAudioFilePath);
+        if(audioClip != emptyAudioClip) {
+            return audioClip;
+        }
+        return Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/" + audioFilePath);
+        
     }
 }
 
