@@ -98,7 +98,7 @@ class V2Subtitles {
 
     public string subtitles_v2Second_intro2_1 = "How's about this for a trade?";
     public string subtitles_v2Second_intro2_2 = "I beat you into a fucking pulp";
-    public string subtitles_v2Second_intro2_3 = "And you give my arm back";
+    public string subtitles_v2Second_intro2_3 = "And you give me my arm back";
 
     public string subtitles_v2Second_taunt1 = "This one will cost you an arm and a leg, Brother!";
     public string subtitles_v2Second_taunt2 = "What's the matter, Brother? Does your arm hurt? BECAUSE I CAN FIX THAT!";
