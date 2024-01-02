@@ -25,7 +25,7 @@ class Patch3 : DefaultPatch {
 
         AudioSource audioSource = Utils.CreateOneTimeVoiceObject(
             "OutroVoice", 
-            V2VoicelinesData.GetAudioClip("v2_1/outro.wav"),
+            V2VoicelinesData.GetAudioClip("v2_1/outro"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_outro1")),
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_outro2"), 0.9f),
@@ -46,7 +46,7 @@ class Patch3 : DefaultPatch {
 
         AudioSource fleeingVoice = Utils.CreateOneTimeVoiceObject(
             "FleeingVoice",
-            V2VoicelinesData.GetAudioClip("v2_2/fleeing1.wav"),
+            V2VoicelinesData.GetAudioClip("v2_2/fleeing1"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_fleeing1"))
             ),
@@ -62,7 +62,7 @@ class Patch3 : DefaultPatch {
         GameObject fallingV2 = Utils.FindGameObjectByName("8 Stuff(Clone)(Clone)").transform.Find("v2_GreenArm").gameObject;
         
         AudioSource audioSource = Utils.CreateVoiceObject("FallingVoice", fallingV2.transform);
-        audioSource.clip = V2VoicelinesData.GetAudioClip("v2_2/death.wav");
+        audioSource.clip = V2VoicelinesData.GetAudioClip("v2_2/death");
         // Wait until V2 starts falling
         yield return new WaitUntil(() => fallingV2.activeInHierarchy);
         yield return new WaitForSeconds(0.3f);

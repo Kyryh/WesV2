@@ -15,7 +15,7 @@ class Patch1 : DefaultPatch {
 
             Utils.CreateOneTimeVoiceObject(
                 "SlidingVoice",
-                V2VoicelinesData.GetAudioClip("v2_2/fleeing2.wav"),
+                V2VoicelinesData.GetAudioClip("v2_2/fleeing2"),
                 Utils.CreateSubtitleData(
                     Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_fleeing2_1")),
                     Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_fleeing2_2"), 3f)
@@ -34,12 +34,12 @@ class Patch1 : DefaultPatch {
                 new ExtensionMethods.V2AdditionalData(
                     audioSource,
                     [
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt1.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt2.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt3.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt4.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt5.wav"), 
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt6.wav"), 
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt1"),
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt2"),
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt3"),
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt4"),
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt5"), 
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt6"), 
                     ],
                     [
                         V2VoicelinesData.GetSubtitle("subtitles_v2_taunt1"),
@@ -51,7 +51,7 @@ class Patch1 : DefaultPatch {
                     ],
                     null,
                     null,
-                    V2VoicelinesData.GetAudioClip("v2_1/death.wav"),
+                    V2VoicelinesData.GetAudioClip("v2_1/death"),
                     V2VoicelinesData.GetSubtitle("subtitles_v2_death")
                 )
             );
@@ -63,10 +63,10 @@ class Patch1 : DefaultPatch {
                 new ExtensionMethods.V2AdditionalData(
                     audioSource,
                     [
-                        V2VoicelinesData.GetAudioClip("v2_2/taunt1.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_2/taunt2.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_2/taunt3.wav"),
-                        V2VoicelinesData.GetAudioClip("v2_2/taunt4.wav"), 
+                        V2VoicelinesData.GetAudioClip("v2_2/taunt1"),
+                        V2VoicelinesData.GetAudioClip("v2_2/taunt2"),
+                        V2VoicelinesData.GetAudioClip("v2_2/taunt3"),
+                        V2VoicelinesData.GetAudioClip("v2_2/taunt4"), 
                     ],
                     [
                         V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt1"),
@@ -74,9 +74,9 @@ class Patch1 : DefaultPatch {
                         V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt3"),
                         V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt4")
                     ],
-                    V2VoicelinesData.GetAudioClip("v2_2/enrage.wav"),
+                    V2VoicelinesData.GetAudioClip("v2_2/enrage"),
                     V2VoicelinesData.GetSubtitle("subtitles_v2Second_enrage"),
-                    V2VoicelinesData.GetAudioClip("v2_1/death.wav"),
+                    V2VoicelinesData.GetAudioClip("v2_1/death"),
                     V2VoicelinesData.GetSubtitle("subtitles_v2_death")
                 )
             );
@@ -88,7 +88,7 @@ class Patch1 : DefaultPatch {
 
         // V2's 1-4 intro, when they come out from the window (fucking sick btw)
         if (__instance.intro) {
-            __instance.PlayVoice(V2VoicelinesData.GetAudioClip("v2_1/windowbreak.wav"));
+            __instance.PlayVoice(V2VoicelinesData.GetAudioClip("v2_1/windowbreak"));
             MonoSingleton<SubtitleController>.Instance.DisplaySubtitle(V2VoicelinesData.GetSubtitle("subtitles_v2_windowsbreak"));
         }
 
@@ -107,7 +107,7 @@ class Patch1 : DefaultPatch {
 
         AudioSource audioSource = Utils.CreateOneTimeVoiceObject(
             "IntroVoice", 
-            V2VoicelinesData.GetAudioClip("v2_1/intro.wav"),
+            V2VoicelinesData.GetAudioClip("v2_1/intro"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_intro_1"), 1.2f),
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_intro_2"), 3.2f),

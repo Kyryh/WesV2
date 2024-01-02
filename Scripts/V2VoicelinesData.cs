@@ -53,7 +53,7 @@ static class V2VoicelinesData {
                 return audioClip;
         }
 
-        return Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/" + audioFilePath);
+        return Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/" + audioFilePath + ".wav");
         
     }
 
@@ -63,7 +63,7 @@ static class V2VoicelinesData {
         // Load the clip from file
         AudioClip audioClip = AudioSwapper.SwapClipWithFile(emptyAudioClip, AudioSwapper.SpeechFolder + fixedAudioFilePath);
         // If the loaded clip is different from the empty clip, then the load was successful
-        if(audioClip != emptyAudioClip)
+        if (audioClip != emptyAudioClip)
             return audioClip;
         return null;
     }

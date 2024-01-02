@@ -61,6 +61,8 @@ public class Plugin : BaseUnityPlugin
 
 
 
+
+
     public void OnSceneLoaded() {
         // In case the V2_2Intro coroutine is still playing
         StopAllCoroutines();
@@ -73,7 +75,7 @@ public class Plugin : BaseUnityPlugin
 
             Utils.CreateOneTimeVoiceObject(
                 "Voice",
-                V2VoicelinesData.GetAudioClip("v2_1/jumpscare.wav"),
+                V2VoicelinesData.GetAudioClip("v2_1/jumpscare"),
                 Utils.CreateSubtitleData(
                     Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_jumpscare_1")),
                     Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_jumpscare_2"), .8f)
@@ -110,7 +112,7 @@ public class Plugin : BaseUnityPlugin
 
         AudioSource audioSource1 = Utils.CreateOneTimeVoiceObject(
             "IntroVoice1", 
-            V2VoicelinesData.GetAudioClip("v2_2/intro1.wav"),
+            V2VoicelinesData.GetAudioClip("v2_2/intro1"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro1_1")),
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro1_2"), 1.6f),
@@ -121,7 +123,7 @@ public class Plugin : BaseUnityPlugin
 
         AudioSource audioSource2 = Utils.CreateOneTimeVoiceObject(
             "IntroVoice2", 
-            V2VoicelinesData.GetAudioClip("v2_2/intro2.wav"),
+            V2VoicelinesData.GetAudioClip("v2_2/intro2"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro2_1"), 1.5f),
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro2_2"), 3.1f),
