@@ -37,4 +37,8 @@
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y &quot;bin\debug\netstandard2.0\WesV2.dll&quot; &quot;Mod\BepInEx\plugins\&quot;&#xD;&#xA;xcopy /y &quot;bin\debug\netstandard2.0\WesV2.dll&quot; &quot;D:\Games\SteamLibrary\steamapps\common\ULTRAKILL\BepInEx\plugins\&quot;&#xD;&#xA;&#xD;&#xA;start steam://rungameid/1229490" />
+  </Target>
 </Project>
