@@ -7,6 +7,8 @@ class Patch4 : DefaultPatch {
     static void Postfix(V2 __instance) {
         if (!__instance.firstPhase)
             return;
+        if (__instance.name == "Big Johnator")
+            return;
         ExtensionMethods.V2AdditionalData data = __instance.GetAdditionalData();
 
         data.timesChangedWeapon++;

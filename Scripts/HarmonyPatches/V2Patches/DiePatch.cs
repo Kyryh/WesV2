@@ -9,6 +9,10 @@ class Patch2 : DefaultPatch {
         if (___dead)
             return;
         
+
+        if (__instance.name == "Big Johnator")
+            return;
+
         // In case the player does the silly thing with the coin and kills V2 before they finish the intro
         if (__instance.inIntro)
             __instance.transform.Find("IntroVoice").gameObject.SetActive(false);

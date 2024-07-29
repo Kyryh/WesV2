@@ -5,6 +5,8 @@ using System.Collections;
 [HarmonyPatch(typeof(V2), "Start")]
 class Patch1 : DefaultPatch {
     static void Postfix(V2 __instance, Animator ___anim) {
+        if (__instance.name == "Big Johnator")
+            return;
         AudioSource audioSource;
 
         if (__instance.firstPhase) {
