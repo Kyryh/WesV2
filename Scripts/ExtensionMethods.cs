@@ -94,14 +94,5 @@ public static class ExtensionMethods
         v2.PlayVoice(data.tauntAudioClips[randomTaunt]);
         MonoSingleton<SubtitleController>.Instance.DisplaySubtitle(data.tauntSubtitles[randomTaunt]);
     }
-
-    // Set the subtitles attribute in a SubtitledAudioSource via reflection
-    // because it doesn't have a method to do it 
-    // (i guess there isn't one since you serialize it in the unity editor)
-    public static void SetSubtitles(this SubtitledAudioSource subtitledAudioSource, SubtitledAudioSource.SubtitleData subtitles) {
-        Traverse.Create(subtitledAudioSource).Field("subtitles").SetValue(
-            subtitles
-        );
-    }
 }
 

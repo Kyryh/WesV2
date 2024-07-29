@@ -83,9 +83,7 @@ static class Utils {
         voice.AddComponent<SoundPause>();
 
         SubtitledAudioSource subtitledAudioSource = voice.AddComponent<SubtitledAudioSource>();
-        subtitledAudioSource.SetSubtitles(
-            subtitles
-        );
+        subtitledAudioSource.subtitles = subtitles;
 
         return audioSource;
     }

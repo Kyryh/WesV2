@@ -19,8 +19,9 @@
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+	<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
-    <Reference Include="Assembly-CSharp">
+    <Reference Include="Assembly-CSharp" Publicize="true">
       <HintPath>$(ULTRAKILL_PATH)\ULTRAKILL_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="UltrakULL">
