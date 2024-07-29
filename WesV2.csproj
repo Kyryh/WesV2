@@ -8,6 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <LangVersion>12</LangVersion>
+	<ULTRAKILL_PATH>D:\Games\SteamLibrary\steamapps\common\ULTRAKILL</ULTRAKILL_PATH>
   </PropertyGroup>
   
 
@@ -20,18 +21,14 @@
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>lib\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(ULTRAKILL_PATH)\ULTRAKILL_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="UltrakULL">
-      <HintPath>lib\UltrakULL.dll</HintPath>
+      <HintPath>$(ULTRAKILL_PATH)\BepInEx\plugins\UltrakULL\UltrakULL.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(ULTRAKILL_PATH)\ULTRAKILL_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <!-- <Reference Include="UMM">
-      <HintPath>lib\UMM.dll</HintPath>
-    </Reference> -->
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
