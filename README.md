@@ -90,7 +90,7 @@ The audio clip filenames and subtitles are as follows:
 	- ``subtitles_v2Second_fleeing2_1``: Gotta get away, gotta get away, oh no...
 	- ``subtitles_v2Second_fleeing2_2``: YOUR FORM IS INCREDIBLE!
   - ``death``
-	- ``subtitles_v2Second_death``: FUCKING NIKON"
+	- ``subtitles_v2Second_death``: FUCKING NIKON
 
 # Demonstration
 [![](https://img.youtube.com/vi/gBR4t437jJg/0.jpg)](https://youtu.be/gBR4t437jJg)
