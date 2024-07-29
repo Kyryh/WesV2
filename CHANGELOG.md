@@ -1,3 +1,6 @@
+# 1.2.1
+- Fixed V2's voicelines being present in Big Johnator's fight
+
 # 1.2.0
 - Added UltrakULL support
 - Updated the mod to work with the most recent version of Ultrakill
