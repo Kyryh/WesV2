@@ -1,6 +1,7 @@
 using HarmonyLib;
 
 
+namespace WesV2.Patches;
 
 [HarmonyPatch(typeof(V2), "Die")]
 class Patch2 : DefaultPatch {

@@ -7,9 +7,11 @@ using System.Reflection;
 using BepInEx.Logging;
 using System.Collections;
 using System;
+using WesV2.Patches;
 
+namespace WesV2;
 
-[BepInPlugin("kyryh.wesv2", WesV2.PluginInfo.PLUGIN_NAME, WesV2.PluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
 [BepInDependency("clearwater.ultrakill.ultrakull", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin {
     public static AssetBundle WesV2AssetBundle;
@@ -17,7 +19,7 @@ public class Plugin : BaseUnityPlugin {
     public static Plugin Instance;
     public static bool secondEncounterIntro = false;
     public static bool ultrakullLoaded = false;
-
+    public const string GUID = "kyryh.wesv2";
     public void Awake() {
 
         Instance = this;

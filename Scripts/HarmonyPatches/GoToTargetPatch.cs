@@ -2,6 +2,7 @@ using HarmonyLib;
 using UnityEngine;
 
 
+namespace WesV2.Patches;
 
 [HarmonyPatch(typeof(GoToTarget), "Activate")]
 class Patch7 : DefaultPatch {

@@ -1,6 +1,7 @@
 using HarmonyLib;
 
 
+namespace WesV2.Patches;
 
 [HarmonyPatch(typeof(V2), "SwitchWeapon")]
 class Patch4 : DefaultPatch {

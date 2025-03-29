@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace WesV2;
+
 static class Utils {
 
     // Method to find a GameObject given its name

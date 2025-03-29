@@ -8,6 +8,8 @@ using System;
 using UnityEngine;
 using UltrakULL.audio;
 
+namespace WesV2;
+
 static class V2VoicelinesData {
     private static Dictionary<string, V2Subtitles> allSubtitles = new Dictionary<string, V2Subtitles>();
 

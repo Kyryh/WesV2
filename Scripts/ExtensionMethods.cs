@@ -6,6 +6,7 @@ using System.Reflection;
 using System;
 using Random = UnityEngine.Random;
 
+namespace WesV2;
 public static class ExtensionMethods {
 
     public static Type[] GetPatchesOfType(this Assembly assembly, Type type) {

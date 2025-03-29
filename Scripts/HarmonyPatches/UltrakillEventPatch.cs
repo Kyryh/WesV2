@@ -1,6 +1,8 @@
 using HarmonyLib;
 using UnityEngine;
 
+namespace WesV2.Patches;
+
 [HarmonyPatch(typeof(UltrakillEvent), "Invoke")]
 class Patch8 : DefaultPatch {
     static void Prefix(UltrakillEvent __instance) {

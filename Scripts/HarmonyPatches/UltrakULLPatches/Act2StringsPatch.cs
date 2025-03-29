@@ -2,6 +2,7 @@ using HarmonyLib;
 using UltrakULL;
 
 
+namespace WesV2.Patches;
 
 [HarmonyPatch(typeof(Act2Strings), "Level44")]
 class Patch9 : UltrakULLPatch {

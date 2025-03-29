@@ -2,6 +2,8 @@ using HarmonyLib;
 using UnityEngine;
 using System.Collections;
 
+namespace WesV2.Patches;
+
 [HarmonyPatch(typeof(V2), "Start")]
 class Patch1 : DefaultPatch {
     static void Postfix(V2 __instance, Animator ___anim) {

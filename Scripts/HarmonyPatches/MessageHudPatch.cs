@@ -1,5 +1,7 @@
 using HarmonyLib;
 
+namespace WesV2.Patches;
+
 [HarmonyPatch(typeof(HudMessage), "PlayMessage")]
 class Patch6 : DefaultPatch {
     static void Prefix(ref string ___message) {
