@@ -11,8 +11,7 @@ using System;
 
 [BepInPlugin("kyryh.wesv2", WesV2.PluginInfo.PLUGIN_NAME, WesV2.PluginInfo.PLUGIN_VERSION)]
 [BepInDependency("clearwater.ultrakill.ultrakull", BepInDependency.DependencyFlags.SoftDependency)]
-public class Plugin : BaseUnityPlugin
-{
+public class Plugin : BaseUnityPlugin {
     public static AssetBundle WesV2AssetBundle;
     public static ManualLogSource Log;
     public static Plugin Instance;
@@ -29,7 +28,7 @@ public class Plugin : BaseUnityPlugin
         Assembly assembly = Assembly.GetExecutingAssembly();
 
         // Load the asset bundle from the mod's assembly
-        using (Stream stream = assembly.GetManifestResourceStream("WesV2.Resources.wesv2assetbundle")){
+        using (Stream stream = assembly.GetManifestResourceStream("WesV2.Resources.wesv2assetbundle")) {
             WesV2AssetBundle = AssetBundle.LoadFromStream(stream);
         }
 
@@ -51,9 +50,9 @@ public class Plugin : BaseUnityPlugin
                 harmony.PatchAll(type);
             }
         }
-        
+
         V2VoicelinesData.LoadSubtitles();
-        
+
         Logger.LogInfo("Plugin Wes V2 is loaded!");
 
     }
@@ -67,9 +66,9 @@ public class Plugin : BaseUnityPlugin
         // In case the V2_2Intro coroutine is still playing
         StopAllCoroutines();
         string levelName = SceneHelper.CurrentScene;
-        
+
         if (levelName == "Level 1-4") {
-            
+
             // Find the fake V2 object and add the AudioSource and AudioClip to it
             GameObject fakeV2 = Utils.FindGameObjectByName("Fake V2");
 
@@ -83,8 +82,7 @@ public class Plugin : BaseUnityPlugin
                 fakeV2.transform
             );
 
-        }
-        else if (levelName == "Level 4-4") {
+        } else if (levelName == "Level 4-4") {
             StartCoroutine(V2_2Intro());
         }
     }
@@ -111,7 +109,7 @@ public class Plugin : BaseUnityPlugin
         introVoice.transform.position = bossIntro.transform.Find("v2_GreenArm").position;
 
         AudioSource audioSource1 = Utils.CreateOneTimeVoiceObject(
-            "IntroVoice1", 
+            "IntroVoice1",
             V2VoicelinesData.GetAudioClip("v2_2/intro1"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro1_1")),
@@ -122,7 +120,7 @@ public class Plugin : BaseUnityPlugin
         );
 
         AudioSource audioSource2 = Utils.CreateOneTimeVoiceObject(
-            "IntroVoice2", 
+            "IntroVoice2",
             V2VoicelinesData.GetAudioClip("v2_2/intro2"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2Second_intro2_1"), 1.5f),
@@ -131,7 +129,7 @@ public class Plugin : BaseUnityPlugin
             ),
             introVoice.transform
         );
- 
+
 
         // Waits until the boss arena loads
         yield return new WaitUntil(() => {
@@ -173,12 +171,12 @@ public class Plugin : BaseUnityPlugin
             return versusIntro.activeInHierarchy;
         });
         audioSource2.Stop();
-        
+
         yield return null;
         secondEncounterIntro = false;
-        
+
     }
-    
+
     public static void LogDebug(object data) {
         Log.LogDebug(data);
     }

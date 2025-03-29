@@ -1,11 +1,9 @@
 // A way to differentiate between normal patches
 // and UltrakULL patches
-class DefaultPatch
-{
-    
+class DefaultPatch {
+
 }
 
-class UltrakULLPatch
-{
-    
+class UltrakULLPatch {
+
 }

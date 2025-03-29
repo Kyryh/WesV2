@@ -6,8 +6,7 @@ using System.Reflection;
 using System;
 using Random = UnityEngine.Random;
 
-public static class ExtensionMethods
-{
+public static class ExtensionMethods {
 
     public static Type[] GetPatchesOfType(this Assembly assembly, Type type) {
         return assembly.GetTypes().Where(t => t.IsSubclassOf(type)).ToArray();
@@ -20,7 +19,7 @@ public static class ExtensionMethods
         additionalDataTable.TryGetValue(v2, out V2AdditionalData data);
         return data;
 
-    }   
+    }
 
     public static void SetAdditionalData(this V2 v2, V2AdditionalData data) {
         additionalDataTable.Add(v2, data);
@@ -46,7 +45,7 @@ public static class ExtensionMethods
 
         public AudioClip deathAudioClip = deathAudioClip;
         public string deathSubtitle = deathSubtitle;
-        
+
         public int timesChangedWeapon = 0;
 
         // Gets a random taunt based on each taunt's weight
@@ -75,7 +74,7 @@ public static class ExtensionMethods
         AudioSource audioSource = v2.GetAdditionalData().audioSource;
         audioSource.pitch = Random.Range(0.95f, 1f);
         audioSource.clip = clip;
-		audioSource.Play();
+        audioSource.Play();
     }
 
     // Plays a random taunt
@@ -95,4 +94,3 @@ public static class ExtensionMethods
         MonoSingleton<SubtitleController>.Instance.DisplaySubtitle(data.tauntSubtitles[randomTaunt]);
     }
 }
-

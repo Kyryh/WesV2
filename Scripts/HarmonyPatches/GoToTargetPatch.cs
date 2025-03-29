@@ -13,4 +13,4 @@ class Patch7 : DefaultPatch {
             transform.Find("Voice").SetParent(null);
         }
     }
-} 
+}

@@ -21,4 +21,4 @@ class Patch4 : DefaultPatch {
 
         Plugin.LogDebug("v2 changed weapon");
     }
-} 
+}

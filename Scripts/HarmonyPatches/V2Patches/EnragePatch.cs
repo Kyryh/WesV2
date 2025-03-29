@@ -14,4 +14,4 @@ class Patch5 : DefaultPatch {
 
         Plugin.LogDebug("v2 enraged");
     }
-} 
+}

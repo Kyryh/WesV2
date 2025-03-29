@@ -8,7 +8,7 @@ class Patch2 : DefaultPatch {
         // In case V2 already died, because for some fucking reason Die() is called twice when you spawn them with the spawner arm and kill them???
         if (___dead)
             return;
-        
+
 
         if (__instance.name == "Big Johnator")
             return;

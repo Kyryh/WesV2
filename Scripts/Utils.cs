@@ -13,7 +13,7 @@ static class Utils {
                 return gameObject;
             }
         }
-        
+
         Plugin.LogError("huh??? " + name);
         return null;
     }
@@ -37,15 +37,15 @@ static class Utils {
     // Basically what the static method AudioSource.PlayClipAtPoint() does,
     // but i couldn't get it to work for some reason so i've just rewritten it here
     public static void PlayClipAtPoint(AudioClip clip, Vector3 position) {
-        
+
         GameObject gameObject = new GameObject("One shot audio");
         gameObject.transform.position = position;
         AudioSource audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.pitch = Random.Range(0.95f, 1f);
         audioSource.clip = clip;
-		audioSource.Play();
+        audioSource.Play();
         // +1 because idk better safe than sorry ig
-        GameObject.Destroy(gameObject, clip.length+1);
+        GameObject.Destroy(gameObject, clip.length + 1);
     }
 
     public static AudioSource CreateVoiceObject(string name, Transform parent = null) {
@@ -62,7 +62,7 @@ static class Utils {
         audioSource.dopplerLevel = 0;
 
         voice.AddComponent<SoundPause>();
-        
+
         return audioSource;
     }
 

@@ -14,13 +14,12 @@ static class V2VoicelinesData {
     public static void LoadSubtitles() {
         allSubtitles.Add("default", new V2Subtitles());
         if (Plugin.ultrakullLoaded) {
-            string[] files = Directory.GetFiles(Path.Combine(BepInEx.Paths.ConfigPath,"ultrakull"),"*.json");
+            string[] files = Directory.GetFiles(Path.Combine(BepInEx.Paths.ConfigPath, "ultrakull"), "*.json");
             foreach (string file in files) {
                 try {
                     JObject jsonObject = JObject.Parse(File.ReadAllText(file));
                     string langName = (string)jsonObject["metadata"]["langName"];
-                    if (!allSubtitles.ContainsKey(langName) && langName != "te-mp")
-                    {
+                    if (!allSubtitles.ContainsKey(langName) && langName != "te-mp") {
                         V2Subtitles subtitles = JsonConvert.DeserializeObject<V2Subtitles>(jsonObject["subtitles"].ToString());
                         allSubtitles.Add(langName, subtitles);
                     }
@@ -54,7 +53,7 @@ static class V2VoicelinesData {
         }
 
         return Plugin.WesV2AssetBundle.LoadAsset<AudioClip>("assets/" + audioFilePath + ".wav");
-        
+
     }
 
     private static AudioClip GetAudioClipUltrakull(string audioFilePath) {

@@ -10,7 +10,7 @@ class Patch1 : DefaultPatch {
         AudioSource audioSource;
 
         if (__instance.firstPhase) {
-            audioSource = Utils.CreateVoiceObject("Voice", __instance.transform); 
+            audioSource = Utils.CreateVoiceObject("Voice", __instance.transform);
         } else {
             // Start of second phase in 4-4, no need to create a new Voice GameObject
             audioSource = __instance.transform.Find("Voice").GetComponent<AudioSource>();
@@ -24,7 +24,7 @@ class Patch1 : DefaultPatch {
                 ),
                 __instance.transform
             ).Play();
-            
+
         }
 
 
@@ -40,8 +40,8 @@ class Patch1 : DefaultPatch {
                         V2VoicelinesData.GetAudioClip("v2_1/taunt2"),
                         V2VoicelinesData.GetAudioClip("v2_1/taunt3"),
                         V2VoicelinesData.GetAudioClip("v2_1/taunt4"),
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt5"), 
-                        V2VoicelinesData.GetAudioClip("v2_1/taunt6"), 
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt5"),
+                        V2VoicelinesData.GetAudioClip("v2_1/taunt6"),
                     ],
                     [
                         V2VoicelinesData.GetSubtitle("subtitles_v2_taunt1"),
@@ -57,10 +57,9 @@ class Patch1 : DefaultPatch {
                     V2VoicelinesData.GetSubtitle("subtitles_v2_death")
                 )
             );
-        }
-        else {
+        } else {
             // SECOND ENCOUNTER (4-4)
-            
+
             __instance.SetAdditionalData(
                 new ExtensionMethods.V2AdditionalData(
                     audioSource,
@@ -68,7 +67,7 @@ class Patch1 : DefaultPatch {
                         V2VoicelinesData.GetAudioClip("v2_2/taunt1"),
                         V2VoicelinesData.GetAudioClip("v2_2/taunt2"),
                         V2VoicelinesData.GetAudioClip("v2_2/taunt3"),
-                        V2VoicelinesData.GetAudioClip("v2_2/taunt4"), 
+                        V2VoicelinesData.GetAudioClip("v2_2/taunt4"),
                     ],
                     [
                         V2VoicelinesData.GetSubtitle("subtitles_v2Second_taunt1"),
@@ -108,7 +107,7 @@ class Patch1 : DefaultPatch {
         yield return new WaitUntil(() => ___anim.GetBool("Intro"));
 
         AudioSource audioSource = Utils.CreateOneTimeVoiceObject(
-            "IntroVoice", 
+            "IntroVoice",
             V2VoicelinesData.GetAudioClip("v2_1/intro"),
             Utils.CreateSubtitleData(
                 Utils.MakeLine(V2VoicelinesData.GetSubtitle("subtitles_v2_intro_1"), 1.2f),
