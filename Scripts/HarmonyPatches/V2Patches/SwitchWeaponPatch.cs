@@ -3,9 +3,12 @@ using HarmonyLib;
 
 namespace WesV2.Patches;
 
-[HarmonyPatch(typeof(V2), "SwitchWeapon")]
-class Patch4 : DefaultPatch {
-    static void Postfix(V2 __instance) {
+[HarmonyPatch(typeof(V2))]
+partial class V2Patches : DefaultPatch {
+
+    [HarmonyPatch(nameof(V2.SwitchWeapon))]
+    [HarmonyPostfix]
+    static void SwitchWeaponPostfix(V2 __instance) {
         if (!__instance.firstPhase)
             return;
         if (__instance.name == "Big Johnator")

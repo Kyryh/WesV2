@@ -4,9 +4,11 @@ using HarmonyLib;
 namespace WesV2.Patches;
 
 [HarmonyPatch(typeof(V2))]
-[HarmonyPatch(nameof(V2.Enrage), [typeof(string)])]
-class Patch5 : DefaultPatch {
-    static void Postfix(V2 __instance, string enrageName) {
+partial class SwitchWeaponPatch : DefaultPatch {
+
+    [HarmonyPatch(nameof(V2.Enrage), [typeof(string)])]
+    [HarmonyPostfix]
+    static void EnragePostfix(V2 __instance, string enrageName) {
         if (enrageName == "STOP HITTING YOURSELF") {
             ExtensionMethods.V2AdditionalData data = __instance.GetAdditionalData();
             data.timesChangedWeapon = 0;

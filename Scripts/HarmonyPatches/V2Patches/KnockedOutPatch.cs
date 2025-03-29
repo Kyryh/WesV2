@@ -4,9 +4,11 @@ using System.Collections;
 
 namespace WesV2.Patches;
 
-[HarmonyPatch(typeof(V2), "KnockedOut")]
-class Patch3 : DefaultPatch {
-    static void Postfix(V2 __instance, string triggerName) {
+[HarmonyPatch(typeof(V2))]
+partial class SwitchWeaponPatch : DefaultPatch {
+    [HarmonyPatch(nameof(V2.KnockedOut))]
+    [HarmonyPostfix]
+    static void KnockedOutPostfix(V2 __instance, string triggerName) {
         if (triggerName == "KnockedDown") {
             if (!__instance.secondEncounter)
                 __instance.StartCoroutine(Outro(__instance));
