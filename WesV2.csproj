@@ -1,42 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>WesV2</AssemblyName>
-    <Description></Description>
-    <Version>1.2.0</Version>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>latest</LangVersion>
-    <LangVersion>12</LangVersion>
-	<ULTRAKILL_PATH>D:\Games\SteamLibrary\steamapps\common\ULTRAKILL</ULTRAKILL_PATH>
-  </PropertyGroup>
-  
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<AssemblyName>WesV2</AssemblyName>
+		<Version>1.2.0</Version>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>latest</LangVersion>
+		<LangVersion>12</LangVersion>
+		<GamePath>D:\Games\SteamLibrary\steamapps\common\ULTRAKILL</GamePath>
+		<AssemblySearchPaths>
+			$(AssemblySearchPaths);
+			$(GamePath)\ULTRAKILL_Data\Managed;
+		</AssemblySearchPaths>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\wesv2assetbundle" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-    <PackageReference Include="BepInEx.Core" Version="5.*" />
-    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
-	<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
-    <PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
-    <Reference Include="Assembly-CSharp" Publicize="true">
-      <HintPath>$(ULTRAKILL_PATH)\ULTRAKILL_Data\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="UltrakULL">
-      <HintPath>$(ULTRAKILL_PATH)\BepInEx\plugins\UltrakULL\UltrakULL.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>$(ULTRAKILL_PATH)\ULTRAKILL_Data\Managed\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  
-  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
-  </ItemGroup>
-  
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y &quot;bin\debug\netstandard2.0\WesV2.dll&quot; &quot;Mod\BepInEx\plugins\&quot;&#xD;&#xA;xcopy /y &quot;bin\debug\netstandard2.0\WesV2.dll&quot; &quot;D:\Games\SteamLibrary\steamapps\common\ULTRAKILL\BepInEx\plugins\&quot;&#xD;&#xA;&#xD;&#xA;start steam://rungameid/1229490" />
-  </Target>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\wesv2assetbundle" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+		<PackageReference Include="BepInEx.Core" Version="5.*" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
+		<PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
+		<Reference Include="Assembly-CSharp" Publicize="true" />
+		<Reference Include="UltrakULL">
+			<HintPath>$(GamePath)\BepInEx\plugins\UltrakULL\UltrakULL.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GamePath)\BepInEx\plugins\" />
+	</Target>
 </Project>
