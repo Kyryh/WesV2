@@ -10,8 +10,8 @@ partial class V2Patches : DefaultPatch {
 
     [HarmonyPatch(nameof(V2.Start))]
     [HarmonyPostfix]
-    static void StartPostfix(V2 __instance, Animator ___anim) {
-        if (__instance.name == "Big Johnator")
+    static void StartPostfix(V2 __instance) {
+        if (__instance.transform.Find("BigJohn") != null)
             return;
 
         if (__instance.firstPhase) {
